@@ -1,3 +1,3 @@
 #! /usr/bin/bash
-00a_get-firecracker.sh && \
-00b_get-kernel-and-rootfs.sh
+Scripts/00a_get-firecracker.sh && \
+Scripts/00b_get-kernel-and-rootfs.sh
