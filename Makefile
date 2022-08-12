@@ -8,7 +8,7 @@ net:
 	sudo ./Setup-network.sh
 
 run:
-	./Start.sh
+	sudo ./Start.sh
 
 clean:
 	sudo rm -rf release* ubuntu-firecracker firecracker vmlinux image.ext4

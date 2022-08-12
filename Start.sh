@@ -7,4 +7,4 @@
   sleep 1 && Scripts/05_set-cpu-n-mem.sh    && \
   sleep 1 && Scripts/06_start-guest-machine.sh \
 ) & \
-sudo Scripts/01_start-socket.sh
+Scripts/01_start-socket.sh
