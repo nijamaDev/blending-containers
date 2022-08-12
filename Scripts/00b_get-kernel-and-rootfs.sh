@@ -1,25 +1,9 @@
 #! /usr/bin/bash
-# get the kernel and rootfs, if you don't have any available:
-arch=`uname -m`
-dest_kernel="hello-vmlinux.bin"
-dest_rootfs="hello-rootfs.ext4"
-image_bucket_url="https://s3.amazonaws.com/spec.ccfc.min/img/quickstart_guide/$arch"
 
-if [ ${arch} = "x86_64" ]; then
-    kernel="${image_bucket_url}/kernels/vmlinux.bin"
-    rootfs="${image_bucket_url}/rootfs/bionic.rootfs.ext4"
-elif [ ${arch} = "aarch64" ]; then
-    kernel="${image_bucket_url}/kernels/vmlinux.bin"
-    rootfs="${image_bucket_url}/rootfs/bionic.rootfs.ext4"
-else
-    echo "Cannot run firecracker on $arch architecture!"
-    exit 1
-fi
-
-echo "Downloading $kernel..."
-curl -fsSL -o $dest_kernel $kernel
-
-echo "Downloading $rootfs..."
-curl -fsSL -o $dest_rootfs $rootfs
-
-echo "Saved kernel file to $dest_kernel and root block device to $dest_rootfs."
+git clone https://github.com/bkleiner/ubuntu-firecracker && \
+cd ubuntu-firecracker && \
+docker build -t ubuntu-firecracker . && \
+docker run --privileged -it --rm -v $(pwd)/output:/output ubuntu-firecracker && \
+cd .. && \
+mv ubuntu-firecracker/output/vmlinux ./ && \
+mv ubuntu-firecracker/output/image.ext4 ./

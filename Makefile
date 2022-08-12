@@ -9,3 +9,6 @@ net:
 
 run:
 	./Start.sh
+
+clean:
+	rm -rf release* ubuntu-firecracker firecracker vmlinux image.ext4
