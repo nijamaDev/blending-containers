@@ -2,7 +2,7 @@
 
 # Set the guest kernel
 arch=`uname -m`
-kernel_path=$(pwd)"/hello-vmlinux.bin"
+kernel_path=$(pwd)"/ubuntu-firecracker/output/vmlinux"
 
 if [ ${arch} = "x86_64" ]; then
     curl --unix-socket /tmp/firecracker.socket -i \
