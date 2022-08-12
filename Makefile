@@ -1,8 +1,11 @@
 default:
-	echo "if it's the first time, first run 'make setup' and then 'make run'"
+	echo "if it's the first time, first run 'make setup', then 'make net' and then 'make run'"
 
 setup:
-	./setup.sh
+	./Setup.sh
+
+net:
+	sudo ./Setup-network.sh
 
 run:
-	./Main.sh
+	./Start.sh
