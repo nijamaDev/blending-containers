@@ -28,5 +28,5 @@ curl \
   -d '{
     "iface_id": "eth0",
     "guest_mac": "AA:FC:00:00:00:01",
-    "host_dev_name": "tap0"
+    "host_dev_name": "veth0"
   }'
